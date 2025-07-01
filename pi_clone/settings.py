@@ -25,10 +25,10 @@ SECRET_KEY = 'django-insecure-+mmt@^pt84s2#g+96*prf03q7wyt6^^s1navw6rm*=(=$!w*7q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-project-name.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://piverify3.onrender.com', 'localhost', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://your-project-name.onrender.com'
+    'https://piverify3.onrender.com'
 ]
 
 # Application definition
