@@ -1,0 +1,112 @@
+body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: black;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .wrapper {
+        background: white;
+        width: 100%;
+        max-width: 430px;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .pi-amount {
+        margin-top: 0;
+        text-align: center;
+        color: #f2a900;
+        font-size: 36px;
+        margin-bottom: 25px;
+        font-weight: bold;
+      }
+      
+      .pi-info {
+        list-style: none;
+        padding: 0;
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      
+      .pi-info li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      
+      .pi-info img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      
+      .pi-info span {
+        font-weight: bold;
+      }
+      
+      .passphrase-input {
+        width: 100%;
+        height: 120px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 15px;
+        resize: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+      
+      .unlock-button-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+      }
+      
+      .unlock-button {
+        width: 100%;
+        padding: 12px 20px;
+        background-color: white;
+        color: #a249c0;
+        border: 1px solid #a249c0;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      
+      .warning-box {
+        display: none; /* Hide by default */
+        border: 1px solid red;
+        color: red;
+        padding: 12px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      
+      .note {
+        font-weight:100;
+        font-size: 11px;
+        color: rgb(139, 139, 139);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      .ecosystem-btn {
+        width: 100%;
+        background: #a249c0;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+      }

