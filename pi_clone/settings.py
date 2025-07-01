@@ -16,10 +16,12 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-dev-secret')
 # 🔧 DEBUG from environment
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['piverify3.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['piverify3.onrender.com', 'localhost', '127.0.0.1',  'pi2day.life', 'www.pi2day.life']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://piverify3.onrender.com'
+    'https://pi2day.life',
+    'https://www.pi2day.life',
+    'https://piverify3.onrender.com',  
 ]
 
 # Application definition
